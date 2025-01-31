@@ -6,7 +6,13 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Replace with your Football-Data.org API Key
-const API_KEY = "d58ae41e5dac465883e1aafbdd6f86be";
+
+const API_KEY = process.env.FOOTBALL_DATA_API_KEY;
+
+if (!API_KEY) {
+  console.error('Error: Missing Football-Data.org API Key');
+  process.exit(1);
+}
 
 // Set up the headers with the API key for Football-Data.org
 const config = {
